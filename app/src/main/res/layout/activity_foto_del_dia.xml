@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FotoDelDia"
+    android:background="@drawable/background"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnBacktoMenu"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="X"
+        android:textSize="24sp"
+        android:padding="0dp"
+        android:backgroundTint="@color/orange"/>
+    <ImageView
+        android:src="@drawable/seasonsaturn"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginBottom="24dp"
+        />
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#70FFFFFF"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ringed planet Saturn will be at its 2023 opposition, opposite the Sun in Earth's skies, on August 27. While that puts the sixth planet from the Sun at its brightest and well-placed for viewing, its beautiful ring system isn't visible to the unaided eye. Still, this sequence of telescopic images taken a year apart over the last six years follows both Saturn and rings as seen from inner planet Earth. The gas giant's ring plane tilts from most open in 2018 to approaching edge-on in 2023 (top to bottom). That's summer to nearly the autumn equinox for Saturn's northern hemisphere. In the sharp planetary portraits, Saturn's northern hexagon and a large storm system are clearly visible in 2018. In 2023, ice moon Tethys is transiting, casting its shadow across southern hemisphere cloud bands, while Saturn's cold blue south pole is emerging from almost a decade of winter darkness."
+            android:maxLines="30"
+            android:padding="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Author: Andy Casely"
+            android:textStyle="bold"
+            android:padding="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fecha:2023-08-25"
+            android:textStyle="bold"
+            android:padding="10dp"
+            />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
