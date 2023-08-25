@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:paddingVertical="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    >
 
     <ImageView
         android:id="@+id/ivPlanet"
@@ -26,14 +27,17 @@
             android:id="@+id/tvPlanetName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="nombre"
+            tools:text="Nombre"
             android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             />
         <TextView
             android:id="@+id/tvDescripcion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
+            android:textColor="@color/white"
             tools:text="okanofkofksfmnsld{
                 fmnsdfkmsdkfmsa{dkfms{lkdfms{dlkv{fknv
                 {ldfknb{dlfkn{dlknb{ldkfmnb{eknfgwkonf{

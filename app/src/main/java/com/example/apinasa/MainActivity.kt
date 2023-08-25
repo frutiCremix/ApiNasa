@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         btnLogin.setOnClickListener {
             if (verificarLogin()) {
-                val intent = Intent(this, ListaPlanetasView::class.java)
+                val intent = Intent(this, Menu::class.java)
                 startActivity(intent)
                 finish()
 
