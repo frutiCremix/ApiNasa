@@ -10,6 +10,7 @@
     >
 
     <ImageView
+        android:contentDescription="@string/imgSistemaSolar"
         android:id="@+id/ivPlanet"
         android:layout_width="150dp"
         android:layout_height="150dp"

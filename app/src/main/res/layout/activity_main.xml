@@ -41,26 +41,28 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/itUserNameLogin"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_marginBottom="14dp"
                 android:layout_gravity="center"
                 android:textColor="@color/white"
+                android:hint="Username"
                 />
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/itPasswordLogin"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_marginBottom="14dp"
                 android:layout_gravity="center"
                 android:textColor="@color/white"
                 android:inputType="textPassword"
+                android:hint="Password"
                 />
 
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/app_submit"
+                android:text="@string/app_login"
                 android:layout_gravity="center"
                 />
 
@@ -95,8 +97,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/itUserNameRegister"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
+                android:layout_height="48dp"
+                android:hint="Username"
                 android:layout_marginBottom="14dp"
                 android:layout_gravity="center"
                 android:textColor="@color/black"
@@ -104,18 +106,19 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/itPasswordRegister"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_marginBottom="14dp"
                 android:layout_gravity="center"
                 android:textColor="@color/black"
                 android:inputType="textPassword"
+                android:hint="Password"
                 />
 
             <Button
                 android:id="@+id/btnRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/app_submit"
+                android:text="@string/app_register"
                 android:layout_gravity="center"
                 />
 
