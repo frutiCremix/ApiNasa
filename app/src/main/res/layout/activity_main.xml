@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:gravity="center"
     android:orientation="vertical"
     android:background="@drawable/background"
     >
-
-    <androidx.cardview.widget.CardView
+    <include android:id="@+id/toolbar"
+        layout="@layout/toolbar_title_layout"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+        <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingHorizontal="30dp"
@@ -69,7 +75,7 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
+        <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingHorizontal="30dp"
@@ -124,5 +130,5 @@
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
+    </LinearLayout>
 </LinearLayout>

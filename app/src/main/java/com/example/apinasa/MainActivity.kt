@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var itPassworRegister:EditText
     lateinit var btnLogin: Button
     lateinit var btnRegister:Button
+    lateinit var toolbar: Toolbar;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         init()
     }
+
 
     fun init() {
         ///// Inicializamos usuarios de prueba
@@ -39,7 +42,10 @@ class MainActivity : AppCompatActivity() {
         itUserNameRegister=findViewById<EditText>(R.id.itUserNameRegister)
         itPassworRegister=findViewById<EditText>(R.id.itPasswordRegister)
         btnRegister=findViewById<Button>(R.id.btnRegister)
-
+        //recuperamos el toolbar
+        toolbar=findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title=resources.getString(R.string.app_name)
 
         btnLogin.setOnClickListener {
             if (verificarLogin()) {
@@ -85,5 +91,7 @@ class MainActivity : AppCompatActivity() {
         val usuario = userList.find { it.userName == username && it.password == password }
 
         return usuario != null
+
+
     }
 }
