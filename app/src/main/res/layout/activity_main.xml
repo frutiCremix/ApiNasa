@@ -63,6 +63,11 @@
                 android:inputType="textPassword"
                 android:hint="Password"
                 />
+            <CheckBox
+                android:text="recuerdame"
+                android:id="@+id/checkRecorder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <Button
                 android:id="@+id/btnLogin"
