@@ -8,12 +8,14 @@ import android.widget.Button
 import android.widget.Toast
 
 import androidx.appcompat.widget.Toolbar
+import com.example.apinasa.assets.ApiNasaResponse
 
 
 class Menu : AppCompatActivity() {
     private lateinit var btnSistemaSolar:Button
     private lateinit var btnFotoDelDia:Button
     private lateinit var btnFotoMarte:Button
+    private lateinit var btnApiNasa:Button
     private lateinit var btnExit:Button
     private lateinit var toolbar: Toolbar
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +28,7 @@ class Menu : AppCompatActivity() {
         btnSistemaSolar=findViewById(R.id.btnSistemaSolar)
         btnFotoDelDia=findViewById(R.id.btnFotoDelDia)
         btnFotoMarte=findViewById(R.id.btnMarte)
+        btnApiNasa=findViewById(R.id.btnApiNasa)
         btnExit=findViewById(R.id.delete)
         toolbar=findViewById(R.id.toolbar)
 
@@ -53,6 +56,11 @@ class Menu : AppCompatActivity() {
             sharedPreferences.edit().clear().apply()
             Toast.makeText(this, "Datos de SharedPreferences eliminados", Toast.LENGTH_SHORT).show()
             val intent=Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        btnApiNasa.setOnClickListener {
+            val intent=Intent(this,FotoNasa::class.java)
             startActivity(intent)
             finish()
         }
