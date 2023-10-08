@@ -7,7 +7,7 @@ import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import com.example.apinasa.R.*
 
-class FotoMarte : AppCompatActivity() {
+class Buscador : AppCompatActivity() {
 
     private lateinit var toolbar: Toolbar
     override fun onCreate(savedInstanceState: Bundle?) {
