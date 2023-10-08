@@ -10,38 +10,46 @@
         layout="@layout/toolbar_layout"/>
 
     <ImageView
-        android:src="@drawable/seasonsaturn"
+        android:id="@+id/imgContent"
+        tools:src="@drawable/seasonsaturn"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="250dp"
         android:layout_marginBottom="15dp"
         />
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:backgroundTint="#70FFFFFF"
         >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-        <TextView
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="320dp">
+            <TextView
+            android:id="@+id/explanation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/descripcion"
+            tools:text="@string/descripcion"
             android:maxLines="30"
             android:padding="10dp"
             />
+        </ScrollView>
         <TextView
+            android:id="@+id/copyright"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/author"
+            tools:text="@string/author"
             android:textStyle="bold"
             android:padding="5dp"
             />
         <TextView
+            android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/fechaFotoDelDia"
+            tools:text="@string/fechaFotoDelDia"
             android:textStyle="bold"
             android:padding="5dp"
             />

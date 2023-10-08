@@ -17,5 +17,6 @@
     <string name="LogOut">LogOut</string>
     <string name="recuerdame">recuerdame</string>
     <string name="btnApiNasa">Explora el espacio</string>
-    btnApiNasa
+    <string name="buscador">Buscador. Aventurate y explora!</string>
+    <string name="btnClimaMarte">info del clima en marte</string>
 </resources>

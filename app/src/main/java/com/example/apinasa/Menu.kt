@@ -2,13 +2,11 @@ package com.example.apinasa
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
-
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.example.apinasa.assets.ApiNasaResponse
 
 
 class Menu : AppCompatActivity() {
@@ -31,7 +29,6 @@ class Menu : AppCompatActivity() {
         btnApiNasa=findViewById(R.id.btnApiNasa)
         btnExit=findViewById(R.id.delete)
         toolbar=findViewById(R.id.toolbar)
-
         setSupportActionBar(toolbar)
         supportActionBar!!.title=resources.getString(R.string.app_name)
 
@@ -54,7 +51,7 @@ class Menu : AppCompatActivity() {
         btnExit.setOnClickListener{
            val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
             sharedPreferences.edit().clear().apply()
-            Toast.makeText(this, "Datos de SharedPreferences eliminados", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Adios! Esperamos hayas disfrutado de la app :)", Toast.LENGTH_SHORT).show()
             val intent=Intent(this,MainActivity::class.java)
             startActivity(intent)
             finish()
@@ -64,5 +61,6 @@ class Menu : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
     }
 }

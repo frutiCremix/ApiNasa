@@ -1,13 +1,14 @@
 package com.example.apinasa
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import android.view.MenuItem
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
 import com.example.apinasa.assets.APIService
 import com.example.apinasa.assets.ApiNasaAdapter
 import com.example.apinasa.assets.ApiNasaResponse
@@ -22,6 +23,7 @@ class FotoNasa : AppCompatActivity(),SearchView.OnQueryTextListener {
     private lateinit var apiNasaResponseAdapter:ApiNasaAdapter
     private val listResponseImages= mutableListOf<String>()
     private lateinit var search: SearchView
+    private lateinit var toolbar:Toolbar
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +31,8 @@ class FotoNasa : AppCompatActivity(),SearchView.OnQueryTextListener {
         setContentView(R.layout.activity_foto_nasa)
         search=findViewById(R.id.svDogs)
         search.setOnQueryTextListener(this)
+        toolbar=findViewById(R.id.toolbar)
+        initTooblarMenu()
         initRecyclerView()
     }
     fun initRecyclerView(){
@@ -72,6 +76,7 @@ class FotoNasa : AppCompatActivity(),SearchView.OnQueryTextListener {
                                             link.render == "image" && link.href.startsWith("https://images-assets.nasa.gov/image")
                                         }
                                     }.flatMap { item ->
+                                        //ahora creamos la lista pero solo con las imagenes
                                         item.links?.filter { link ->
                                             link.render == "image" && link.href.startsWith("https://images-assets.nasa.gov/image")
                                         }?.mapNotNull { link -> link.href } ?: emptyList()
@@ -84,15 +89,15 @@ class FotoNasa : AppCompatActivity(),SearchView.OnQueryTextListener {
                                     apiNasaResponseAdapter.notifyDataSetChanged()
                                 } else {
                                     // Mostramos un error si la lista de items es nula
-                                    showError()
+                                    showError("no se encontraron resultados")
                                 }
                             } else {
                                 // Mostramos un error si la estructura de la respuesta es incorrecta
-                                showError()
+                                showError("respuesta no disponible")
                             }
                         } else {
                             // Mostramos un error si el cuerpo de la respuesta es nulo
-                            showError()
+                            showError("no se encontraron resultados")
                         }
                     }
                 } catch (e: NullPointerException) {
@@ -103,29 +108,48 @@ class FotoNasa : AppCompatActivity(),SearchView.OnQueryTextListener {
 
             override fun onFailure(call: Call<ApiNasaResponse>, t: Throwable) {
                 // Maneja los errores de conexión aquí
-                showError()
+                showError("error de conexion con la api")
             }
         })
     }
-
+//por si hay una mala query
     private fun showErrorNull() {
         Toast.makeText(this,"No encontramos lo que buscas, intenta de nuevo", Toast.LENGTH_SHORT).show()
     }
 
-
-    private fun showError() {
-        Toast.makeText(this,"ha ocurrido un error", Toast.LENGTH_SHORT).show()
+//tengo varios errores que manejar por eso gestiono con esta funcion
+    private fun showError(message :String) {
+        Toast.makeText(this,message, Toast.LENGTH_SHORT).show()
     }
-
+//recuperamos la query del buscador
     override fun onQueryTextSubmit(query: String?): Boolean {
         if(!query.isNullOrEmpty()){
             searchByName(query.toLowerCase())
         }
         return true
     }
-
+//no hace nada pero habia que implementarla
     override fun onQueryTextChange(p0: String?): Boolean {
         return true
+    }
+
+    private fun initTooblarMenu(){
+        toolbar=findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title=resources.getString(R.string.buscador)
+    }
+    override fun onCreateOptionsMenu(menu: android.view.Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId==R.id.item_agregar){
+            val intent= Intent(this,Menu::class.java)
+            startActivity(intent)
+            finish()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
 

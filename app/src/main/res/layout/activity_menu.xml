@@ -70,6 +70,7 @@ android:orientation="vertical"
                 android:backgroundTint="@color/blue"
 
                 />
+
     </LinearLayout>
 
 

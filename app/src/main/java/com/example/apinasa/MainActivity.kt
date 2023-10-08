@@ -1,19 +1,35 @@
 package com.example.apinasa
 
+import android.Manifest
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.SharedPreferences
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import android.content.Context
-import android.content.SharedPreferences
-import android.widget.CheckBox
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), LifecycleOwner {
 
+    companion object{
+        val MY_CHANNEL_ID = "1"
+    }
     private lateinit var itUsername: EditText
     private lateinit var itPassword: EditText
     private lateinit var itUserNameRegister:EditText
@@ -27,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        createChannel()
         init()
     }
 
@@ -73,11 +89,15 @@ class MainActivity : AppCompatActivity() {
                 if(verificarUsuario(userName,password)){
                     //si existe lo logueo y si puse recuerdame lo guardo
                     if(check.isChecked){
+
+                        lifecycleScope.launch(Dispatchers.IO){
+                            //seteamos por defecto en el preference
+                            sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+                            sharedPreferences.edit().putString("userName",userName).apply()
+                            sharedPreferences.edit().putString("password",password).apply()
+                            createSimpleNotification()
+                        }
                         Toast.makeText(this, "usuario recordado", Toast.LENGTH_SHORT).show()
-                        //seteamos por defecto en el preference
-                        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-                        sharedPreferences.edit().putString("userName",userName).apply()
-                        sharedPreferences.edit().putString("password",password).apply()
 
                         //logueo
                         val intent=Intent(this,Menu::class.java)
@@ -102,7 +122,11 @@ class MainActivity : AppCompatActivity() {
 
             val newUser = User(userName,password)
             AppDataBase.getDataBase(applicationContext).userDao().insert(newUser)
-
+            if(verificarUsuario(userName,password)){
+                Toast.makeText(this, "usuario registrado con exito", Toast.LENGTH_SHORT).show()
+                itUserNameRegister.text.clear()
+                itPassworRegister.text.clear()
+            }
         }
     }
 
@@ -113,6 +137,53 @@ class MainActivity : AppCompatActivity() {
         return listaUser.any{ it.userName==user && it.password==password}
         //esta funcion tendria que devolver si existe o no el usuario en db nada mas
     }
+    private fun createChannel(){
+        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.O){
+            val channel= NotificationChannel(
+                MY_CHANNEL_ID,
+                "my superChannel",
+                NotificationManager.IMPORTANCE_DEFAULT
+            ).apply {
+                description="descripcion del canal"
+            }
+            val notificationManager: NotificationManager =getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
+            notificationManager.createNotificationChannel(channel)
+
+        }
+    }
+    private fun createSimpleNotification() {
+
+        val intent=Intent(this,MainActivity::class.java).apply {
+            //evitamos muchas instancias de la misma app en background..
+            flags=Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        val pendingIntent: PendingIntent = PendingIntent.getActivity(this,0,intent, PendingIntent.FLAG_IMMUTABLE)
+        //creamos el builder
+        var builder = NotificationCompat.Builder(this, MY_CHANNEL_ID)
+            .setSmallIcon(android.R.drawable.ic_delete)
+            .setContentTitle("Recordar activado")
+            .setContentText("Tu usuario y contraseña seran recordados. La proxima se inicara la app automaticamente :)")
+            .setContentIntent(pendingIntent)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+        //verificamos si tenemos lso permisos y si no los tenemos los pedimos
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.POST_NOTIFICATIONS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            //solicitar el permiso si no está otorgado
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                1
+            )
+            return
+        }
+
+        with(NotificationManagerCompat.from(this)) {
+            notify(1, builder.build())
+        }
+    }
 
 }
