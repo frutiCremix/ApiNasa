@@ -9,14 +9,11 @@
     android:background="@drawable/background">
     <include android:id="@+id/toolbar"
         layout="@layout/toolbar_layout"/>
-    <SearchView
-        android:id="@+id/svDogs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvApiNasaResponse"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

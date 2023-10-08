@@ -10,9 +10,9 @@ import com.example.apinasa.R
 class PlanetViewHolder(view : View): ViewHolder(view) {
 
     //recuperamos elementos del layout
-    val planetName = view.findViewById<TextView>(R.id.tvPlanetName)
-    val imagePlanet=view.findViewById<ImageView>(R.id.ivPlanet)
-    val planetDescription=view.findViewById<TextView>(R.id.tvDescripcion)
+    private val planetName= view.findViewById<TextView>(R.id.tvPlanetName)
+    private val imagePlanet=view.findViewById<ImageView>(R.id.ivPlanet)
+    private val planetDescription=view.findViewById<TextView>(R.id.tvDescripcion)
 
     fun render(planetModel: Planet){
         //cambiamos los valores en el layout

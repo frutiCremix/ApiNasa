@@ -31,7 +31,7 @@ class FotoDelDia : AppCompatActivity(), LifecycleOwner {
         init()
     }
 
-    fun init(){
+    private fun init(){
         //recuperamos elementos de la UI
         imageContent = findViewById(R.id.imgContent)
         explanation = findViewById(R.id.explanation)

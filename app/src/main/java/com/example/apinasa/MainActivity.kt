@@ -28,7 +28,7 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity(), LifecycleOwner {
 
     companion object{
-        val MY_CHANNEL_ID = "1"
+        var MY_CHANNEL_ID = "1"
     }
     private lateinit var itUsername: EditText
     private lateinit var itPassword: EditText
@@ -160,7 +160,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         }
         val pendingIntent: PendingIntent = PendingIntent.getActivity(this,0,intent, PendingIntent.FLAG_IMMUTABLE)
         //creamos el builder
-        var builder = NotificationCompat.Builder(this, MY_CHANNEL_ID)
+        val builder = NotificationCompat.Builder(this, MY_CHANNEL_ID)
             .setSmallIcon(android.R.drawable.ic_delete)
             .setContentTitle("Recordar activado")
             .setContentText("Tu usuario y contraseña seran recordados. La proxima se inicara la app automaticamente :)")

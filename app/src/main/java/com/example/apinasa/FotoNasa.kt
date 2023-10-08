@@ -35,7 +35,7 @@ class FotoNasa : AppCompatActivity(),SearchView.OnQueryTextListener {
         initTooblarMenu()
         initRecyclerView()
     }
-    fun initRecyclerView(){
+    private fun initRecyclerView(){
         apiNasaResponseAdapter=ApiNasaAdapter(listResponseImages)
         rvApiNasaResponse=findViewById(R.id.rvApiNasaResponse)
         rvApiNasaResponse.layoutManager= LinearLayoutManager(this)
@@ -124,7 +124,7 @@ class FotoNasa : AppCompatActivity(),SearchView.OnQueryTextListener {
 //recuperamos la query del buscador
     override fun onQueryTextSubmit(query: String?): Boolean {
         if(!query.isNullOrEmpty()){
-            searchByName(query.toLowerCase())
+            searchByName(query.lowercase())
         }
         return true
     }

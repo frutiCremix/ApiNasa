@@ -1,11 +1,11 @@
 package com.example.apinasa
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.example.apinasa.R.*
+import com.example.apinasa.R.layout
 
 class FotoMarte : AppCompatActivity() {
 

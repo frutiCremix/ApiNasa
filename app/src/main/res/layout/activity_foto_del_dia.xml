@@ -7,7 +7,7 @@
     android:background="@drawable/background"
     android:orientation="vertical">
     <include android:id="@+id/toolbar"
-        layout="@layout/toolbar_layout"/>
+        layout="@layout/toolbar_title_layout"/>
 
     <ImageView
         android:id="@+id/imgContent"

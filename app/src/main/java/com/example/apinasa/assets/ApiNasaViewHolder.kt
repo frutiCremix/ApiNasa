@@ -7,7 +7,7 @@ import com.example.apinasa.R
 import com.squareup.picasso.Picasso
 
 class ApiNasaViewHolder (view : View): RecyclerView.ViewHolder(view) {
-    val imagen: ImageView = view.findViewById(R.id.ivDog)
+    private val imagen: ImageView = view.findViewById(R.id.ivDog)
     fun bind(image:String){
         Picasso.get().load(image).into(imagen)
     }

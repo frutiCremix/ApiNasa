@@ -2,7 +2,7 @@ package com.example.apinasa
 
 class PlanetProvider {
         companion object{
-            val planetList= listOf<Planet>(
+            val planetList= listOf(
                 Planet("mercurio","Mercurio es el planeta más cercano al Sol y el más pequeño del sistema solar. Tiene una superficie rocosa y extremadamente caliente durante el día y fría durante la noche debido a la falta de atmósfera significativa.","mercurio"),
                 Planet("venus","Venus es similar en tamaño y composición a la Tierra, pero su atmósfera densa y tóxica hace que su superficie sea insoportablemente caliente. Es conocido como el \"gemelo ardiente\" de la Tierra.","venus"),
                 Planet("tierra","Nuestro planeta, la Tierra, es el único conocido por albergar vida. Tiene una gran diversidad de ecosistemas y una atmósfera que es esencial para el sustento de la vida tal como la conocemos.","tierra"),
