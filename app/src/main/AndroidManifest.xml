@@ -27,9 +27,7 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".ClimaMarte"
-            android:exported="false" />
+
         <activity
             android:name=".FotoNasa"
             android:exported="false" />

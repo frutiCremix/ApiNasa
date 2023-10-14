@@ -121,11 +121,16 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
             val password=itPassworRegister.text.toString()
 
             val newUser = User(userName,password)
-            AppDataBase.getDataBase(applicationContext).userDao().insert(newUser)
-            if(verificarUsuario(userName,password)){
-                Toast.makeText(this, "usuario registrado con exito", Toast.LENGTH_SHORT).show()
-                itUserNameRegister.text.clear()
-                itPassworRegister.text.clear()
+
+            lifecycleScope.launch(Dispatchers.IO) {
+                AppDataBase.getDataBase(applicationContext).userDao().insert(newUser)
+                if (verificarUsuario(userName, password)) {
+                    runOnUiThread {
+                        Toast.makeText(this@MainActivity, "usuario registrado con éxito", Toast.LENGTH_SHORT).show()
+                        itUserNameRegister.text.clear()
+                        itPassworRegister.text.clear()
+                    }
+                }
             }
         }
     }

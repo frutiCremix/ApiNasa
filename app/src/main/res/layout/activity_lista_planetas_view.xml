@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@drawable/logobackground6">
     <include android:id="@+id/toolbar"
-        layout="@layout/toolbar_layout"/>
+        layout="@layout/toolbar_title_layout"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerPlanet"
         android:layout_width="match_parent"
