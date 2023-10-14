@@ -31,7 +31,7 @@ class Menu : AppCompatActivity() {
         toolbar=findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar!!.title=resources.getString(R.string.app_name)
-
+        supportActionBar?.title = null
 
         btnFotoDelDia.setOnClickListener {
             val intent=Intent(this,FotoDelDia::class.java)

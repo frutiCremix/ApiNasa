@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         toolbar=findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar!!.title=resources.getString(R.string.app_name)
-
+        supportActionBar?.title = null
 
 
         btnLogin.setOnClickListener {
@@ -163,7 +163,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         val builder = NotificationCompat.Builder(this, MY_CHANNEL_ID)
             .setSmallIcon(android.R.drawable.ic_delete)
             .setContentTitle("Recordar activado")
-            .setContentText("Tu usuario y contraseña seran recordados. La proxima se inicara la app automaticamente :)")
+            .setContentText("Tu usuario y contraseña seran recordados. La proxima se iniciara la app automaticamente :)")
             .setContentIntent(pendingIntent)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
         //verificamos si tenemos lso permisos y si no los tenemos los pedimos

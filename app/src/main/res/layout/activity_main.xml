@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="@drawable/background"
+    android:background="@drawable/logobackground3"
     >
     <include android:id="@+id/toolbar"
         layout="@layout/toolbar_title_layout"/>
@@ -75,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/app_login"
                 android:layout_gravity="center"
+                android:backgroundTint="@color/black"
                 />
 
         </LinearLayout>
@@ -131,6 +132,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/app_register"
                 android:layout_gravity="center"
+                android:backgroundTint="@color/black"
                 />
 
         </LinearLayout>

@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/logobackground4"
     android:orientation="vertical"
     tools:context=".FotoMarte">
-    <include android:id="@+id/toolbar"
-        layout="@layout/toolbar_title_layout"/>
 
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_title_layout" />
 
     <GridLayout
         android:id="@+id/gridLayout"

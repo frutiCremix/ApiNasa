@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Menu"
-android:orientation="vertical"
-    android:background="@drawable/background">
+    android:orientation="vertical"
+    android:background="@drawable/logobackground4">
     <include android:id="@+id/toolbar"
         layout="@layout/toolbar_title_layout"/>
 
@@ -36,7 +36,7 @@ android:orientation="vertical"
             android:layout_marginBottom="20dp"
             android:padding="15dp"
             android:textSize="24sp"
-            android:backgroundTint="@color/blue"
+            android:backgroundTint="@color/black"
         />
 
         <Button
@@ -47,7 +47,7 @@ android:orientation="vertical"
             android:layout_marginBottom="20dp"
             android:padding="15dp"
             android:textSize="24sp"
-            android:backgroundTint="@color/blue"
+            android:backgroundTint="@color/black"
 
         />
         <Button
@@ -57,7 +57,7 @@ android:orientation="vertical"
             android:text="@string/btnSistemaSolar"
             android:padding="15dp"
             android:textSize="24sp"
-            android:backgroundTint="@color/blue"
+            android:backgroundTint="@color/black"
 
         />
             <Button
@@ -67,7 +67,7 @@ android:orientation="vertical"
                 android:text="@string/btnApiNasa"
                 android:padding="15dp"
                 android:textSize="24sp"
-                android:backgroundTint="@color/blue"
+                android:backgroundTint="@color/black"
 
                 />
 
@@ -78,6 +78,7 @@ android:orientation="vertical"
     <Button android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/LogOut"/>
+        android:text="@string/LogOut"
+        android:backgroundTint="@color/black"/>
     </LinearLayout>
 </LinearLayout>

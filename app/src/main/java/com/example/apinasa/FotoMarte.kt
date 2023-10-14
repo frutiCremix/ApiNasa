@@ -23,7 +23,7 @@ class FotoMarte : AppCompatActivity() {
     private fun initTooblarMenu(){
         toolbar=findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar!!.title=resources.getString(R.string.app_name)
+        supportActionBar?.title = null
     }
     override fun onCreateOptionsMenu(menu: android.view.Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main,menu)

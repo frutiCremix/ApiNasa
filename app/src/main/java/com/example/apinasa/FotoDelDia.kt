@@ -83,11 +83,13 @@ class FotoDelDia : AppCompatActivity(), LifecycleOwner {
     private fun showError(message :String) {
         Toast.makeText(this,message, Toast.LENGTH_SHORT).show()
     }
+
     private fun initTooblarMenu(){
-        toolbar=findViewById(R.id.toolbar)
+        toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar!!.title=resources.getString(R.string.app_name)
+        supportActionBar?.title = null
     }
+
     override fun onCreateOptionsMenu(menu: android.view.Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main,menu)
         return super.onCreateOptionsMenu(menu)
